@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>✨ To'y taklifnomasi | Nozik va kreativ</title>
+    <title>✨ To'y taklifnomasi | Kreativ + Xarita</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -25,7 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* Harakatlanuvchi gul barglari (faqat CSS) */
+        /* Harakatlanuvchi gul barglari */
         .petal {
             position: fixed;
             background: rgba(255, 210, 170, 0.4);
@@ -52,7 +52,7 @@
         .card {
             position: relative;
             z-index: 10;
-            max-width: 580px;
+            max-width: 600px;
             width: 100%;
             background: rgba(255, 248, 240, 0.92);
             backdrop-filter: blur(3px);
@@ -78,7 +78,6 @@
             box-shadow: 0 50px 85px -18px rgba(0, 0, 0, 0.4);
         }
 
-        /* Bezagi */
         .ornament {
             text-align: center;
             padding: 28px 0 12px 0;
@@ -150,10 +149,6 @@
             line-height: 1.5;
         }
 
-        .invitation-text i {
-            color: #cb7b3c;
-        }
-
         .detail-box {
             background: rgba(255, 245, 235, 0.9);
             border-radius: 58px;
@@ -191,6 +186,36 @@
             color: #bc6f3c;
         }
 
+        /* Yangi: Xarita tugmasi */
+        .map-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #2c7a4d;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .map-button:hover {
+            background: #1e5a38;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        .map-button:active {
+            transform: translateY(1px);
+        }
+
         .cta {
             margin: 28px 0 18px;
             background: #fae9db;
@@ -222,10 +247,6 @@
             background: #9e582b;
             transform: translateY(-3px);
             box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-        }
-
-        .btn:active {
-            transform: translateY(1px);
         }
 
         .heart-icon {
@@ -263,7 +284,6 @@
 </head>
 <body>
 
-<!-- Harakatlanuvchi gul barglari (tasodifiy joylashadi) -->
 <div id="petals-container"></div>
 
 <div class="card">
@@ -275,7 +295,7 @@
             ★ MAXSUS TAKLIFNOMA ★
         </div>
 
-        <!-- Ismlar: o'zgartiring! -->
+        <!-- Ismlarni o'zgartiring -->
         <div class="names">
             Farrux <span>&</span> Madina
         </div>
@@ -301,6 +321,12 @@
                 📍 <strong>“Shohona Saroy” to‘y kompleksi</strong><br>
                 Toshkent, YUNUSOBOD tumani, 9-mavze
             </div>
+            
+            <!-- Yangi: Google Maps tugmasi (lokatsiya) -->
+            <a href="https://maps.app.goo.gl/j6Sm8jjpqzy5FoaZ7" target="_blank" class="map-button">
+                🗺️ Xaritada ko‘rish (Google Maps)
+            </a>
+            
             <div class="heart-icon">
                 ❁ ⚘ ❁
             </div>
@@ -319,29 +345,26 @@
 </div>
 
 <script>
-    // Gul barglari yaratish (kreativ jonlanish)
+    // Gul barglari animatsiyasi
     function createPetal() {
         const petal = document.createElement('div');
         petal.classList.add('petal');
-        const size = Math.random() * 35 + 15; // 15px dan 50px gacha
+        const size = Math.random() * 35 + 15;
         petal.style.width = size + 'px';
         petal.style.height = size + 'px';
         petal.style.left = Math.random() * 100 + '%';
-        petal.style.animationDuration = Math.random() * 8 + 5 + 's'; // 5-13 sekund
+        petal.style.animationDuration = Math.random() * 8 + 5 + 's';
         petal.style.animationDelay = Math.random() * 5 + 's';
         petal.style.background = `rgba(245, 185, 115, ${Math.random() * 0.3 + 0.2})`;
         petal.style.transform = `rotate(${Math.random() * 360}deg)`;
         document.body.appendChild(petal);
         
-        // Barglarni o‘chirish (xotirani to‘ldirmaslik uchun)
         setTimeout(() => {
             if(petal && petal.remove) petal.remove();
         }, 15000);
     }
     
-    // Doimiy ravishda barglarni qo‘shish
     setInterval(createPetal, 800);
-    // Dastlab bir nechta barg
     for(let i=0; i<12; i++) {
         setTimeout(createPetal, i*200);
     }
